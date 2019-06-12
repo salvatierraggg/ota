@@ -16,7 +16,7 @@ public class OtaTest {
         DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico();
         Ota ota = new Ota(distribuidorDeTrafico);
 
-        DateTime fecha = new DateTime("2019-12-13");
+        DateTime fecha = new DateTime(13,12,2019);
 
 
         List<Vuelo> vuelos = ota.buscarVuelos(fecha, "BUE", "MIA");
@@ -29,7 +29,7 @@ public class OtaTest {
         DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico();
         Ota ota = new Ota(distribuidorDeTrafico);
 
-        DateTime fecha = new DateTime("2019-12-13");
+        DateTime fecha = new DateTime(13,12,2019);
 
 
         List<Vuelo> vuelos = ota.buscarVuelos(fecha, "BUE", "MIA");
