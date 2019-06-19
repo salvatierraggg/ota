@@ -1,5 +1,8 @@
 package ar.edu.unahur.obj2;
 
+import ar.edu.unahur.obj2.proveedores.Amadeus;
+import ar.edu.unahur.obj2.proveedores.Sabre;
+import ar.edu.unahur.obj2.proveedores.Worldspan;
 import org.joda.time.DateTime;
 
 import java.util.List;
@@ -16,7 +19,7 @@ public class OtaTest {
         DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico();
         Ota ota = new Ota(distribuidorDeTrafico);
 
-        DateTime fecha = new DateTime(13,12,2019);
+        DateTime fecha = new DateTime("13-12-2019");
 
 
         List<Vuelo> vuelos = ota.buscarVuelos(fecha, "BUE", "MIA");
@@ -26,10 +29,11 @@ public class OtaTest {
 
     @org.testng.annotations.Test
     public void testReservar() {
-        DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico();
+        List<Proveedor> proveedores=Stream.of(new AdapterAmadeus(new Amadeus()),new AdapterSabre(new Sabre()),new AdapterWorldspan(new Worldspan())).collect(Collectors.toList());
+        DistribuidorDeTrafico distribuidorDeTrafico = new DistribuidorDeTrafico(proveedores);
         Ota ota = new Ota(distribuidorDeTrafico);
 
-        DateTime fecha = new DateTime(13,12,2019);
+        DateTime fecha = new DateTime("13-12-2019");
 
 
         List<Vuelo> vuelos = ota.buscarVuelos(fecha, "BUE", "MIA");
